@@ -1,5 +1,20 @@
 import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {PortalStore} from '../ts'
+import { PortalStore } from '../ts';
+import { getUserAuthThunk } from '../../auth/redux/slice';
 
-export const { isLoggedIn } = useSelector((state: PortalStore) => state.auth);
+export function useAuth() {
+  const authState = useSelector((state: PortalStore) => state.auth);
+  const dispatch = useDispatch();
+  const handleLogin = useCallback(
+    (email: string, password: string) => {
+      dispatch(getUserAuthThunk({ email, password }));
+    },
+    [dispatch]
+  );
+
+  return {
+    ...authState,
+    handleLogin,
+  };
+}
