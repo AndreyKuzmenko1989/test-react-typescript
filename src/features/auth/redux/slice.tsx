@@ -1,5 +1,4 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { AuthInfoResponse } from '../ts';
 import { Simulate } from 'react-dom/test-utils';
 import error = Simulate.error;
 import any = jasmine.any;
