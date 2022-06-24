@@ -14,9 +14,9 @@ function App() {
           <Route
             path={ROUTES.login}
             element={
-                <PublicRoute>
-                    <Login />
-                </PublicRoute>
+              <PublicRoute>
+                <Login />
+              </PublicRoute>
             }
           />
         </Route>
