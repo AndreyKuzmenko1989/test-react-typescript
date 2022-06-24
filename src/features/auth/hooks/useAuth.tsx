@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { PortalStore } from '../ts';
+import { PortalStore, getUserAuthThunkRequestType } from '../ts';
 import { getUserAuthThunk } from '../../auth/redux/slice';
 
 export function useAuth() {
