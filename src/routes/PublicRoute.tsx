@@ -1,9 +1,18 @@
-import React, { ReactChild } from 'react';
+import React from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
 import { useAuth } from '../features/auth/hooks/useAuth';
-import { ROUTES } from './../routes/constants';
+import { ROUTES } from './constants';
 
-export const PublicRoute = (children: any) => {
+type Props = {
+  children: React.ReactElement;
+};
+
+export const PublicRoute = ({ children }: Props) => {
   const { isLoggedIn } = useAuth();
-  return !isLoggedIn ? children : <Navigate to={ROUTES.main} />;
+  console.log(isLoggedIn, 'isLoggedIn');
+  if (isLoggedIn) {
+    return <Navigate to={ROUTES.main} replace />;
+  }
+
+  return children ? children : <Outlet />;
 };

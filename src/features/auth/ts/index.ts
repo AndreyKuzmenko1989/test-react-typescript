@@ -1,10 +1,9 @@
-import authReducer from '../redux/slice';
-
-export type PortalStore = ReturnType<typeof authReducer>;
-
 export type getUserAuthThunkRequestType = {
   email: string;
-  pass: string;
+};
+export type GetUserParams = {
+  email: string;
+  password: string;
 };
 
 export type initialStateType = {

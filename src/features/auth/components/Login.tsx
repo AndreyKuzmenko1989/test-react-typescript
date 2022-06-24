@@ -19,7 +19,7 @@ export const Login = () => {
   } = useForm<FormData>();
 
   function submitHandler(data: FormData) {
-    handleLogin(data.email, data.password);
+    handleLogin(data);
   }
 
   return (

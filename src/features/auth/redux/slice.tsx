@@ -1,15 +1,12 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { Simulate } from 'react-dom/test-utils';
-import error = Simulate.error;
-import any = jasmine.any;
-import { getUserAuthThunkRequestType, initialStateType } from '../ts';
+import { getUserAuthThunkRequestType, GetUserParams, initialStateType } from '../ts';
 
-export const getUserAuthThunk = createAsyncThunk<getUserAuthThunkRequestType, { email: string; pass: string }>(
+export const getUserAuthThunk = createAsyncThunk<getUserAuthThunkRequestType, GetUserParams>(
   'auth/getUserAuthThunk',
-  async function ({ email, pass }, { rejectWithValue }) {
+  async function ({ email, password }, { rejectWithValue }) {
     try {
       const response = await fetch('');
-      if (email != 'test@gmail.com' || pass != 'Qwerty12') {
+      if (email != 'test@gmail.com' || password != 'Qwerty12') {
         throw new Error('Server Error!');
       }
 
@@ -19,7 +16,7 @@ export const getUserAuthThunk = createAsyncThunk<getUserAuthThunkRequestType, { 
     }
   }
 );
-let initialState: initialStateType = {
+const initialState: initialStateType = {
   email: '',
   isLoggedIn: false,
   error: null,
@@ -51,7 +48,7 @@ const authSlice = createSlice({
     builder.addCase(getUserAuthThunk.rejected, (state: initialStateType, { payload, error }) => {
       state.email = '';
       state.isLoggedIn = false;
-      state.error = error;
+      state.error = error?.message || null;
     });
   },
 });
