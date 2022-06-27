@@ -24,7 +24,7 @@ export const Login = () => {
 
   return (
     <div className="wrapper fadeInDown">
-      <div className="text-center w-50">
+      <div className="login text-center w-50">
         <div className="fadeIn first text-center">
           <img src={userIcon} id="icon" alt="User Icon" width="90px" height="90px" />
         </div>
@@ -91,7 +91,7 @@ export const Login = () => {
             </div>
           </div>
 
-          <input type="submit" className="fadeIn fourth" value="Log In" />
+          <input type="submit" className="fadeIn fourth align-items-center" value="Log In" />
         </form>
       </div>
     </div>
