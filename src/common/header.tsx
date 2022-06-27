@@ -1,5 +1,7 @@
 import { Box, AppBar, Toolbar, Link as LinkMat } from '@mui/material';
+import { NavLink, Outlet } from 'react-router-dom';
 import React from 'react';
+import { ROUTES } from '../routes/constants';
 
 const HeaderComponent = () => {
   return (
@@ -7,12 +9,12 @@ const HeaderComponent = () => {
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static">
           <Toolbar>
-            <LinkMat href="/" color="inherit" sx={{ margin: 2 }}>
+            <NavLink to={ROUTES.main} color="inherit">
               Home
-            </LinkMat>
-            <LinkMat href="/add" color="inherit">
-              Add phone
-            </LinkMat>
+            </NavLink>
+            <NavLink to="/add" color="inherit">
+              Add new phone
+            </NavLink>
           </Toolbar>
         </AppBar>
       </Box>

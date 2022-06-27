@@ -1,8 +1,8 @@
 import { useCallback } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getUserAuthThunkRequestType, GetUserParams } from '../ts';
+import { useSelector } from 'react-redux';
+import { GetTokenParam, getUserAuthThunkRequestType, GetUserParams } from '../ts';
 import store, { PortalStore, useAppDispatch } from '../../../store/index';
-import { getUserAuthThunk } from '../redux/slice';
+import { getTokenAuthThunk, getUserAuthThunk } from '../redux/slice';
 
 export function useAuth() {
   const authState = useSelector((state: PortalStore) => state.auth);
@@ -14,8 +14,16 @@ export function useAuth() {
     [dispatch]
   );
 
+  const checkToken = useCallback(
+    (param: GetTokenParam) => {
+      dispatch(getTokenAuthThunk(param));
+    },
+    [dispatch]
+  );
+
   return {
     ...authState,
     handleLogin,
+    checkToken,
   };
 }

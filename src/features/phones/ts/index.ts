@@ -12,3 +12,13 @@ export type PhoneState = {
   address: string;
   registered?: string;
 };
+
+export type getPhonesThunkRequestType = {
+  phones: Array<PhoneState>;
+};
+
+export type initialStateType = {
+  phones: Array<PhoneState>;
+  isLoading: boolean;
+  error: string | null;
+};

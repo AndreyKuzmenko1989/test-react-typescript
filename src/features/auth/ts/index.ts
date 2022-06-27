@@ -6,6 +6,14 @@ export type GetUserParams = {
   password: string;
 };
 
+export type getTokenRequestType = {
+  token: string;
+};
+
+export type GetTokenParam = {
+  token: string;
+};
+
 export type initialStateType = {
   email: string;
   isLoggedIn: boolean;

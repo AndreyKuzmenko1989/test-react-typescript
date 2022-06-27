@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { ErrorMessage } from '@hookform/error-message';
 import userIcon from '../../../assets/user.svg';
 
-import { useAuth } from '../../../features/auth/hooks/useAuth';
+import { useAuth } from '../hooks/useAuth';
 
 type FormData = { email: string; password: string };
 

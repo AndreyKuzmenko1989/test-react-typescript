@@ -1,13 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ROUTES } from './routes/constants';
 import { Layout } from './common/layout';
-import Login from './pages/login';
-import PhoneList from './pages/phoneList';
+import Login from './pages/Login';
+import Index from './pages/Index';
 import { PrivateRoute } from './routes/PrivateRoute';
 import { PublicRoute } from './routes/PublicRoute';
+import { useAuth } from './features/auth/hooks/useAuth';
 
 function App() {
+  const { checkToken } = useAuth();
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      checkToken({ token });
+    }
+  });
   return (
     <Router>
       <Routes>
@@ -16,7 +24,7 @@ function App() {
             index
             element={
               <PrivateRoute>
-                <PhoneList />
+                <Index />
               </PrivateRoute>
             }
           />
