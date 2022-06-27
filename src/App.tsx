@@ -7,14 +7,17 @@ import Index from './pages/Index';
 import { PrivateRoute } from './routes/PrivateRoute';
 import { PublicRoute } from './routes/PublicRoute';
 import { useAuth } from './features/auth/hooks/useAuth';
+import { getStorageValue } from './api/localStorage';
 
 function App() {
-  const { checkToken } = useAuth();
   useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (token) {
-      checkToken({ token });
-    }
+    const { checkTokenLogin } = useAuth();
+    useEffect(() => {
+      const token = getStorageValue('accessToken');
+      if (token) {
+        checkTokenLogin({ token });
+      }
+    });
   });
   return (
     <Router>
