@@ -3,16 +3,16 @@ import { PhoneList } from '../features/phones/components/PhoneList';
 import { usePhones } from '../features/phones/hooks/usePhones';
 
 const Index = () => {
-  const { phones, getPhones } = usePhones();
+    const { getPhones, sortedContactsByName } = usePhones();
 
   useEffect(() => {
     getPhones();
-  }, [getPhones]);
+  }, );
 
   return (
     <Fragment>
       <title>PhoneList</title>
-      <PhoneList phones={phones} />
+      <PhoneList phones={sortedContactsByName} />
     </Fragment>
   );
 };
