@@ -3,7 +3,7 @@ import { PhoneList } from '../features/phones/components/PhoneList';
 import { usePhones } from '../features/phones/hooks/usePhones';
 
 const Index = () => {
-  const { getPhones } = usePhones();
+  const { phones, getPhones } = usePhones();
 
   useEffect(() => {
     getPhones();
@@ -12,7 +12,7 @@ const Index = () => {
   return (
     <Fragment>
       <title>PhoneList</title>
-      <PhoneList phones={[]} />
+      <PhoneList phones={phones} />
     </Fragment>
   );
 };

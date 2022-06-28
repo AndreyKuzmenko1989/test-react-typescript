@@ -3,7 +3,7 @@ import { initialStateType, getPhonesThunkRequestType } from '../ts';
 
 export const getPhonesThunk = createAsyncThunk<getPhonesThunkRequestType>(
   'phones/getPhonesThunk',
-  async function (_, { rejectWithValue }) {
+  async function (getPhonesThunkRequestType, { rejectWithValue }) {
     try {
       const response = await fetch('./phones.json');
       if (response.status != 200) {
