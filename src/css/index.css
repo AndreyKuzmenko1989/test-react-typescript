@@ -69,6 +69,7 @@ h2 {
 #loginForm input[type=submit] {
     margin: 0 auto;
     display: block;
+    margin-bottom: 20px;
 }
 
 #formContent {

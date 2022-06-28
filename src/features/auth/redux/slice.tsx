@@ -8,7 +8,7 @@ export const getUserAuthThunk = createAsyncThunk<getUserAuthThunkRequestType, Ge
   async function ({ email, password }, { rejectWithValue }) {
     try {
       if (email != 'test@gmail.com' || password != 'Qwerty12') {
-        rejectWithValue('Server Error!');
+        throw 'Server Error!';
       }
 
       setStorageValue('accessToken', email);

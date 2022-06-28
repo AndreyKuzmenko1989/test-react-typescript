@@ -9,7 +9,6 @@ type Props = {
 
 export const PrivateRoute = ({ children }: Props) => {
   const { isLoggedIn } = useAuth();
-  console.log(isLoggedIn, 'isLoggedIn');
 
   if (isLoggedIn) {
     return children ? children : <Outlet />;

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { Alert } from '@mui/material';
 
 import { ErrorMessage } from '@hookform/error-message';
 import userIcon from '../../../assets/user.svg';
@@ -92,7 +93,7 @@ export const Login = () => {
           </div>
 
           <input type="submit" className="fadeIn fourth align-items-center" value="Log In" />
-          <span>{error}</span>
+          {error ? <Alert severity="error">Server error!</Alert> : ''}
         </form>
       </div>
     </div>

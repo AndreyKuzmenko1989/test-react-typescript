@@ -9,7 +9,7 @@ type Props = {
 
 export const PublicRoute = ({ children }: Props) => {
   const { isLoggedIn } = useAuth();
-  console.log(isLoggedIn, 'isLoggedIn');
+
   if (isLoggedIn) {
     return <Navigate to={ROUTES.main} replace />;
   }
