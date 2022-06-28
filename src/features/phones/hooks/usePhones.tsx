@@ -8,7 +8,7 @@ import sortByFirstName from '../utils/sortByFirstName'
 export function usePhones() {
   const { phones, ...phonesState } = useSelector((state: PortalStore) => state.phones);
   const dispatch = useAppDispatch();
-  const sortedContactsByName = useMemo(() => phones?.sort(sortByFirstName) || [], [phones]);
+  const sortedContactsByName = useMemo(() => phones?.slice()?.sort(sortByFirstName) || [], [phones]);
   const getPhones = useCallback(() => {
     if (phones.length <= 0) {
       dispatch(getPhonesThunk());
