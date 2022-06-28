@@ -9,7 +9,7 @@ import { useAuth } from '../hooks/useAuth';
 type FormData = { email: string; password: string };
 
 export const Login = () => {
-  const { handleLogin } = useAuth();
+  const { error, handleLogin } = useAuth();
 
   const {
     register,
@@ -92,6 +92,7 @@ export const Login = () => {
           </div>
 
           <input type="submit" className="fadeIn fourth align-items-center" value="Log In" />
+          <span>{error}</span>
         </form>
       </div>
     </div>

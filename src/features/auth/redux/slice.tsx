@@ -29,14 +29,12 @@ const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    onTokenLogin(state, action) {
+    onTokenLogin: function (state, action) {
       state.email = action.payload.token;
       state.isLoggedIn = true;
-      console.log(state, 'state');
     },
     onTokenLogout(state) {
       state.email = '';
-      setStorageValue('accessToken', '');
       state.isLoggedIn = false;
     },
   },

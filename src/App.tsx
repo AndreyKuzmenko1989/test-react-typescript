@@ -10,15 +10,14 @@ import { useAuth } from './features/auth/hooks/useAuth';
 import { getStorageValue } from './api/localStorage';
 
 function App() {
+  const { checkTokenLogin } = useAuth();
   useEffect(() => {
-    const { checkTokenLogin } = useAuth();
-    useEffect(() => {
-      const token = getStorageValue('accessToken');
-      if (token) {
-        checkTokenLogin({ token });
-      }
-    });
+    const token = getStorageValue('accessToken');
+    if (token) {
+      checkTokenLogin({ token });
+    }
   });
+
   return (
     <Router>
       <Routes>
